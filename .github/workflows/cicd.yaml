@@ -1,0 +1,10 @@
+on: push
+jobs:
+  cicd:
+    uses: aimeeu/hello-gh-nomad/.github/workflows/cicd.yml@main
+    with:
+      BASE_DOMAIN: 'ec2-3-146-178-156.us-east-2.compute.amazonaws.com'
+      NOMAD_ADDR: 'https://ec2-3-146-178-156.us-east-2.compute.amazonaws.com'
+    secrets:
+      NOMAD_TOKEN: ${{ secrets.NOMAD_TOKEN }}
+      REGISTRY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
